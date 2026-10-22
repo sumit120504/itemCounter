@@ -15,6 +15,8 @@
     var list = document.getElementById("item-list");
     var emptyState = document.getElementById("empty-state");
     var exportBtn = document.getElementById("btn-export");
+    var resetAllBtn = document.getElementById("btn-reset-all");
+    var bottomActions = document.getElementById("bottom-actions");
     var statItemsCount = document.getElementById("stat-items-count");
     var statTotalCount = document.getElementById("stat-total-count");
     var toast = document.getElementById("toast");
@@ -105,6 +107,19 @@
         var moved = items.splice(fromIndex, 1)[0];
         items.splice(toIndex, 0, moved);
         commit();
+    }
+
+    function resetAllCounts() {
+        if (!items || items.length === 0) return;
+        var hadNonZero = false;
+        items = items.map(function (item) {
+            if (item.count > 0) hadNonZero = true;
+            return { id: item.id, name: item.name, count: 0 };
+        });
+        if (hadNonZero) {
+            commit();
+            showToast("Reset all counts to zero");
+        }
     }
 
     function commit() {
@@ -475,6 +490,13 @@
             exportBtn.disabled = !hasItems;
             exportBtn.setAttribute("aria-disabled", String(!hasItems));
         }
+        if (resetAllBtn) {
+            resetAllBtn.disabled = totalCount === 0;
+            resetAllBtn.setAttribute("aria-disabled", String(totalCount === 0));
+        }
+        if (bottomActions) {
+            bottomActions.hidden = !hasItems;
+        }
     }
 
     // ---------- Events ----------
@@ -525,6 +547,10 @@
 
     if (exportBtn) {
         exportBtn.addEventListener("click", exportToExcel);
+    }
+
+    if (resetAllBtn) {
+        resetAllBtn.addEventListener("click", resetAllCounts);
     }
 
     // ---------- Init ----------

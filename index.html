@@ -61,6 +61,16 @@
 
         <p id="empty-state" class="empty-state" hidden>No items yet. Add your first one above.</p>
 
+        <div class="bottom-actions" id="bottom-actions" hidden>
+            <button type="button" id="btn-reset-all" class="btn-reset" disabled aria-label="Reset all counts to zero">
+                <svg class="reset-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/>
+                    <path d="M3 3v5h5"/>
+                </svg>
+                <span>Reset all counts</span>
+            </button>
+        </div>
+
         <div id="toast" class="toast toast-hidden" role="status" aria-live="polite" hidden>
             <svg class="toast-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <polyline points="20 6 9 17 4 12"></polyline>
