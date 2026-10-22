@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Item Counter</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@500&family=DM+Sans:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main class="app">
+
+        <header class="header">
+            <h1>Item Counter</h1>
+            <p>Name an item, then count it up or down.</p>
+        </header>
+
+        <form id="add-form" class="add-form" autocomplete="off">
+            <label for="item-name" class="visually-hidden">Item name</label>
+            <input id="item-name" class="input" type="text" placeholder="Item name" maxlength="60">
+            <button type="submit" class="btn-add">Add item</button>
+        </form>
+
+        <ul id="item-list" class="item-list"></ul>
+
+        <p id="empty-state" class="empty-state" hidden>No items yet. Add your first one above.</p>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

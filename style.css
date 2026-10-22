@@ -1,0 +1,211 @@
+/* ---------- Design tokens ---------- */
+:root {
+    --bg: #f4f6f8;
+    --card: #ffffff;
+    --ink: #14181f;
+    --muted: #4a5260;
+    --border: #e1e6ed;
+    --border-strong: #c9d0da;
+    --step-bg: #f0f3f7;
+    --step-hover: #e6ecff;
+    --accent: #2f5bea;
+    --focus: #9db4ff;
+
+    --font-ui: "DM Sans", system-ui, sans-serif;
+    --font-num: "DM Mono", ui-monospace, monospace;
+}
+
+/* ---------- Base ---------- */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    padding: 72px 16px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-ui);
+}
+
+.app {
+    width: 100%;
+    max-width: 560px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+}
+
+/* ---------- Header ---------- */
+.header h1 {
+    margin: 0 0 6px;
+    font-size: 40px;
+    line-height: 1.1;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+.header p {
+    margin: 0;
+    font-size: 16px;
+    color: var(--muted);
+}
+
+/* ---------- Add form ---------- */
+.add-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.input {
+    flex: 1 1 220px;
+    min-width: 0;
+    height: 52px;
+    padding: 0 16px;
+    font: inherit;
+    font-size: 16px;
+    color: var(--ink);
+    background: var(--card);
+    border: 1.5px solid var(--border-strong);
+    border-radius: 12px;
+}
+
+.input::placeholder {
+    color: #6b7380;
+}
+
+.btn-add {
+    flex: 0 0 auto;
+    height: 52px;
+    padding: 0 28px;
+    font: inherit;
+    font-size: 16px;
+    font-weight: 700;
+    color: #fff;
+    background: var(--accent);
+    border: 0;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: filter 0.12s ease, transform 0.06s ease;
+}
+
+.btn-add:hover {
+    filter: brightness(1.1);
+}
+
+.btn-add:active {
+    transform: scale(0.97);
+}
+
+/* ---------- Item list ---------- */
+.item-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 14px 14px 14px 20px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+}
+
+.item-name {
+    flex: 1 1 auto;
+    min-width: 0;
+    font-size: 18px;
+    font-weight: 500;
+    overflow-wrap: anywhere;
+}
+
+.counter {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.count {
+    min-width: 56px;
+    text-align: center;
+    font-family: var(--font-num);
+    font-size: 28px;
+    font-weight: 500;
+}
+
+.btn-step {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent);
+    background: var(--step-bg);
+    border: 0;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background 0.12s ease, transform 0.06s ease;
+}
+
+.btn-step:hover:not(:disabled) {
+    background: var(--step-hover);
+}
+
+.btn-step:active:not(:disabled) {
+    transform: scale(0.95);
+}
+
+.btn-step:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.btn-step svg {
+    pointer-events: none;
+}
+
+/* ---------- Empty state ---------- */
+.empty-state {
+    margin: 0;
+    padding: 40px 20px;
+    text-align: center;
+    color: var(--muted);
+    border: 1.5px dashed var(--border-strong);
+    border-radius: 16px;
+}
+
+.empty-state[hidden] {
+    display: none;
+}
+
+/* ---------- Focus ---------- */
+.input:focus-visible,
+.btn-add:focus-visible,
+.btn-step:focus-visible {
+    outline: 3px solid var(--focus);
+    outline-offset: 2px;
+}
