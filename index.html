@@ -19,6 +19,21 @@
             <p>Name an item, then count it up or down.</p>
         </header>
 
+        <div class="title-group">
+            <label for="list-title" class="title-label">Title (Excel File Name)</label>
+            <div class="title-input-wrapper">
+                <svg class="title-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                    <polyline points="14 2 14 8 20 8"></polyline>
+                    <line x1="16" y1="13" x2="8" y2="13"></line>
+                    <line x1="16" y1="17" x2="8" y2="17"></line>
+                    <polyline points="10 9 9 9 8 9"></polyline>
+                </svg>
+                <input id="list-title" class="input input-title" type="text" placeholder="Title (e.g. Inventory Audit, Grocery List)" maxlength="80">
+                <span class="file-ext-badge" title="Will export as .xlsx">.xlsx</span>
+            </div>
+        </div>
+
         <form id="add-form" class="add-form" autocomplete="off">
             <label for="item-name" class="visually-hidden">Item name</label>
             <input id="item-name" class="input" type="text" placeholder="Item name" maxlength="60">
